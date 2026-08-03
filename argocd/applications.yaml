@@ -8,7 +8,7 @@ metadata:
 spec:
   project: retail-store
   source:
-    repoURL: https://github.com/Honeyshah624/retail-store-gitops.git
+    repoURL: https://github.com/Honeyshah624/retail-store-kustomize-argocd.git
     targetRevision: main
     path: overlays/dev/catalog
   destination:
@@ -33,7 +33,7 @@ metadata:
 spec:
   project: retail-store
   source:
-    repoURL: https://github.com/Honeyshah624/retail-store-gitops.git
+    repoURL: https://github.com/Honeyshah624/retail-store-kustomize-argocd.git
     targetRevision: main
     path: overlays/dev/carts
   destination:
@@ -58,7 +58,7 @@ metadata:
 spec:
   project: retail-store
   source:
-    repoURL: https://github.com/Honeyshah624/retail-store-gitops.git
+    repoURL: https://github.com/Honeyshah624/retail-store-kustomize-argocd.git
     targetRevision: main
     path: overlays/dev/orders
   destination:
@@ -83,7 +83,7 @@ metadata:
 spec:
   project: retail-store
   source:
-    repoURL: https://github.com/Honeyshah624/retail-store-gitops.git
+    repoURL: https://github.com/Honeyshah624/retail-store-kustomize-argocd.git
     targetRevision: main
     path: overlays/dev/checkout
   destination:
@@ -108,7 +108,7 @@ metadata:
 spec:
   project: retail-store
   source:
-    repoURL: https://github.com/Honeyshah624/retail-store-gitops.git
+    repoURL: https://github.com/Honeyshah624/retail-store-kustomize-argocd.git
     targetRevision: main
     path: overlays/dev/ui
   destination:
