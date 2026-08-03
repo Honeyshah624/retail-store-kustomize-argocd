@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: retail-store
+  labels:
+    app.kubernetes.io/name: retail-store
+    app.kubernetes.io/part-of: retail-store

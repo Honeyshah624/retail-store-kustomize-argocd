@@ -1,0 +1,124 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: retail-catalog
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: retail-store
+  source:
+    repoURL: https://github.com/Honeyshah624/retail-store-gitops.git
+    targetRevision: main
+    path: overlays/dev/catalog
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: retail-store
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+    - PruneLast=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: retail-carts
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: retail-store
+  source:
+    repoURL: https://github.com/Honeyshah624/retail-store-gitops.git
+    targetRevision: main
+    path: overlays/dev/carts
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: retail-store
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+    - PruneLast=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: retail-orders
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: retail-store
+  source:
+    repoURL: https://github.com/Honeyshah624/retail-store-gitops.git
+    targetRevision: main
+    path: overlays/dev/orders
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: retail-store
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+    - PruneLast=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: retail-checkout
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: retail-store
+  source:
+    repoURL: https://github.com/Honeyshah624/retail-store-gitops.git
+    targetRevision: main
+    path: overlays/dev/checkout
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: retail-store
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+    - PruneLast=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: retail-ui
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: retail-store
+  source:
+    repoURL: https://github.com/Honeyshah624/retail-store-gitops.git
+    targetRevision: main
+    path: overlays/dev/ui
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: retail-store
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+    - PruneLast=true
