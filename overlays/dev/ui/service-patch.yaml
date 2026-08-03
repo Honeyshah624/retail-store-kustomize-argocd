@@ -6,9 +6,7 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
     service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
     service.beta.kubernetes.io/aws-load-balancer-ip-address-type: ipv4
-
     service.beta.kubernetes.io/aws-load-balancer-subnets: subnet-00b1ec4d40e30f2c4,subnet-02e7a85bc042377d5,subnet-01e82abfceb8f10eb
-
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-protocol: HTTP
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-port: traffic-port
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-path: /actuator/health/readiness

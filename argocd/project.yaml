@@ -6,7 +6,7 @@ metadata:
 spec:
   description: Retail Store microservices on EKS Auto Mode
   sourceRepos:
-    - https://github.com/Honeyshah624/retail-store-gitops.git
+  - https://github.com/Honeyshah624/retail-store-kustomize-argocd.git
   destinations:
     - server: https://kubernetes.default.svc
       namespace: retail-store
