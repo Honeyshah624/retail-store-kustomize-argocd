@@ -4,12 +4,21 @@ metadata:
   name: retail-store
   namespace: argocd
 spec:
-  description: Retail Store microservices on EKS Auto Mode
+  description: Retail Store multi-environment deployment on EKS Auto Mode
+
   sourceRepos:
-  - https://github.com/Honeyshah624/retail-store-kustomize-argocd.git
+    - https://github.com/Honeyshah624/retail-store-kustomize-argocd.git
+
   destinations:
     - server: https://kubernetes.default.svc
-      namespace: retail-store
+      namespace: retail-store-dev
+
+    - server: https://kubernetes.default.svc
+      namespace: retail-store-staging
+
+    - server: https://kubernetes.default.svc
+      namespace: retail-store-prod
+
   namespaceResourceWhitelist:
     - group: "*"
       kind: "*"

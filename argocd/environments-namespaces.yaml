@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: retail-store-dev
+  labels:
+    app.kubernetes.io/part-of: retail-store
+    environment: dev
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: retail-store-staging
+  labels:
+    app.kubernetes.io/part-of: retail-store
+    environment: staging
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: retail-store-prod
+  labels:
+    app.kubernetes.io/part-of: retail-store
+    environment: prod

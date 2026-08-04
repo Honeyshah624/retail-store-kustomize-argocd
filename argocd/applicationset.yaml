@@ -1,0 +1,73 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: retail-store-environments
+  namespace: argocd
+spec:
+  goTemplate: true
+
+  goTemplateOptions:
+    - missingkey=error
+
+  generators:
+    - matrix:
+        generators:
+          - list:
+              elements:
+                - environment: dev
+                  namespace: retail-store-dev
+
+                - environment: staging
+                  namespace: retail-store-staging
+
+                - environment: prod
+                  namespace: retail-store-prod
+
+          - list:
+              elements:
+                - service: catalog
+                - service: carts
+                - service: orders
+                - service: checkout
+                - service: ui
+
+  template:
+    metadata:
+      name: "retail-{{.environment}}-{{.service}}"
+      namespace: argocd
+
+      labels:
+        app.kubernetes.io/part-of: retail-store
+        environment: "{{.environment}}"
+        service: "{{.service}}"
+
+    spec:
+      project: retail-store
+
+      source:
+        repoURL: https://github.com/Honeyshah624/retail-store-kustomize-argocd.git
+        targetRevision: main
+        path: "overlays/{{.environment}}/{{.service}}"
+
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "{{.namespace}}"
+
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+          allowEmpty: false
+
+        syncOptions:
+          - CreateNamespace=true
+          - ApplyOutOfSyncOnly=true
+          - PruneLast=true
+          - RespectIgnoreDifferences=true
+
+        retry:
+          limit: 5
+          backoff:
+            duration: 5s
+            factor: 2
+            maxDuration: 3m
