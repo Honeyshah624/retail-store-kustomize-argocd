@@ -8,7 +8,7 @@ resources:
 
 images:
   - name: public.ecr.aws/aws-containers/retail-store-sample-cart
-    newName: public.ecr.aws/aws-containers/retail-store-sample-cart
+    newName: 454143665149.dkr.ecr.ap-south-1.amazonaws.com/retail-store/carts
     newTag: 1.6.2
 
 replicas:
