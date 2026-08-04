@@ -4,15 +4,18 @@ kind: Kustomization
 namespace: retail-store-dev
 
 resources:
-  - ../../../base/checkout
+  - ../../../base/ui
+
+patches:
+  - path: service-patch.yaml
 
 images:
-  - name: public.ecr.aws/aws-containers/retail-store-sample-checkout
+  - name: public.ecr.aws/aws-containers/retail-store-sample-ui
     newName: 454143665149.dkr.ecr.ap-south-1.amazonaws.com/retail-store/ui
     newTag: 1.6.2
 
 replicas:
-  - name: checkout
+  - name: ui
     count: 1
 
 labels:
