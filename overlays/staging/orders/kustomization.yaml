@@ -4,15 +4,15 @@ kind: Kustomization
 namespace: retail-store-staging
 
 resources:
-  - ../../../base/carts
+  - ../../../base/orders
 
 images:
-  - name: public.ecr.aws/aws-containers/retail-store-sample-cart
+  - name: public.ecr.aws/aws-containers/retail-store-sample-orders
     newName: 454143665149.dkr.ecr.ap-south-1.amazonaws.com/retail-store/orders
     newTag: 1.6.2
 
 replicas:
-  - name: carts
+  - name: orders
     count: 2
 
 labels:
